@@ -47,7 +47,7 @@ def run():
             with open(inp) as inpf:
                 inputs.append(inpf.readlines())
         except OSError as err:
-            print("Failed to read file, %e." % err)
+            print("Failed to read file, %s." % err)
             sys.exit(1)
 
     hosts = []
@@ -56,7 +56,7 @@ def run():
             with open(args.hostlist) as hostf:
                 hosts = hostf.readlines()
         except OSError as err:
-            print("Failed to read hostlist, %e." % err)
+            print("Failed to read hostlist, %s." % err)
             sys.exit(1)
 
     fresh_scanned = scan_hosts(hosts)
@@ -66,7 +66,7 @@ def run():
         with open(args.outputfile, 'w') as outf:
             outf.write(output)
     except OSError as err:
-        print("Failed to write file, %e." % err)
+        print("Failed to write file, %s." % err)
         sys.exit(1)
 
 
