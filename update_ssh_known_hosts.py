@@ -21,7 +21,7 @@ def parse_args():
     parser.add_argument('--hostlist',
                         '-l',
                         help='List of hosts to scan and add.')
-    parser.add_argument('--inputfiles',
+    parser.add_argument('--inputfile',
                         '-i',
                         action='append',
                         help='Input ssh_known_host files to combine.')
@@ -42,7 +42,7 @@ def run():
         logging.getLogger().setLevel(logging.DEBUG)
 
     inputs = []
-    for inp in args.inputfiles:
+    for inp in args.inputfile:
         try:
             with open(inp) as inpf:
                 inputs.append(inpf.readlines())
